@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Train Animation</title>
+    <style>
+        /* Styling for the container */
+        #train-container {
+            text-align: center;
+        }
+
+        /* Styling for the train image */
+        #train {
+            width: 200px; /* Adjust the width as needed */
+            position: relative;
+            animation-name: moveTrain;
+            animation-duration: 5s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-play-state: paused; /* Initially at rest */
+        }
+
+        @keyframes moveTrain {
+            0% {
+                left: -200px; /* Adjust the initial position as needed */
+            }
+            100% {
+                left: 100%; /* Adjust the final position as needed */
+            }
+        }
+
+        /* Styling for the text color */
+        h1.text-color-primary {
+            color: darkblue; /* Change the color to dark blue */
+        }
+    </style>
+</head>
+<body>
+    <div id="train-container">
+        <img id="train" src="train.png" alt="Train Image"> <!-- Replace "train.png" with your actual image URL -->
+        <br>
+        <h1 class="text-color-primary">Click the following buttons to handle animation</h1>
+        <button onclick="startTrain()">Start</button>
+        <button onclick="stopTrain()">Stop</button>
+         <!-- Added text -->
+    </div>
+
+    <script>
+        var train = document.getElementById("train");
+        var animation;
+
+        function startTrain() {
+            train.style.animationPlayState = "running";
+        }
+
+        function stopTrain() {
+            train.style.animationPlayState = "paused";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>b-t1</title>
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+        crossorigin="anonymous"
+    />
+    <style>
+        .bg-info {
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Custom CSS for the grey background */
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh; /* 100% of viewport height */
+        }
+
+        /* Container for the split section */
+        .split-container {
+            display: flex;
+            flex: 1;
+        }
+
+        /* Left section with white background */
+        .left-section {
+            flex: 3.5;
+            background-color: white;
+            padding: 90px; /* Adjust the padding as needed */
+        }
+
+        /* Right section with grey background */
+        .right-section {
+            flex: 1;
+            background-color: grey;
+            padding: 0; /* Adjust the padding as needed */
+        }
+
+        /* Optional: Adjust the height and width as needed */
+        /* You can change these values as per your requirements */
+    </style>
+</head>
+<body>
+    <div class="container-fluid bg-info">Ethanus Layout</div>
+
+    <nav class="navbar navbar-expand-sm bg-secondary">
+        <ul class="navbar-nav">
+            <li class="nav-item" style="margin-right: 50px;">
+                <a class="nav-link text-light" href="#">Home</a>
+            </li>
+            <li class="nav-item" style="margin-right: 50px;">
+                <a class="nav-link text-light" href="#">Menu</a>
+            </li>
+            <li class="nav-item" style="margin-right: 50px;">
+                <a class="nav-link text-light" href="#">About</a>
+            </li>
+            <li class="nav-item" style="margin-right: 650px;">
+                <a class="nav-link text-light" href="#">Contact</a>
+            </li>
+            <li class="nav-item" style="margin-right: 90px;">
+                <a class="nav-link text-light" href="#">Sign Up</a>
+            </li>
+            <li class="nav-item" style="margin-right: 10px;">
+                <a class="nav-link text-light" href="#">Login</a>
+            </li>
+        </ul>
+    </nav>
+    
+    <div class="split-container  text-light ">
+        <div class="left-section">
+            <!-- Content for the left (white) section -->
+            <center>
+                Write your content here
+            </center>
+        </div>
+        <div class="right-section">
+            <!-- Content for the right (grey) section -->
+            <p  ><center>This is</center></p>
+        </div>
+    </div>
+</body>
+</html>

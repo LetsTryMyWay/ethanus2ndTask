@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        /* Style for the calculator container */
+        .calculator-container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f5f5f5;
+            text-align: center;
+        }
+
+        /* Style for the form */
+        form {
+            margin: 20px 0;
+        }
+
+        /* Style for the input fields */
+        label {
+            display: block;
+            font-weight: bold;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        /* Style for the results */
+        #results {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <h1>Simple Calculator</h1>
+        <form id="calculator-form">
+            <label for="num1">Enter the first number:</label>
+            <input type="number" id="num1" required><br>
+            
+            <label for="num2">Enter the second number:</label>
+            <input type="number" id="num2" required><br>
+
+            <button type="submit">Calculate</button>
+        </form>
+        
+        <div id="results"></div>
+    </div>
+
+    <script>
+        // Reference the form and results div
+        const calculatorForm = document.getElementById('calculator-form');
+        const resultsDiv = document.getElementById('results');
+
+        // Add event listener for form submission
+        calculatorForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Get user input for the first number and second number
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+
+            // Check if the user entered valid numbers
+            if (isNaN(num1) || isNaN(num2)) {
+                resultsDiv.innerHTML = 'Invalid input. Please enter valid numbers.';
+            } else {
+                // Calculate multiplication and division
+                const multiplicationResult = num1 * num2;
+                const divisionResult = num1 / num2;
+
+                // Display the results
+                resultsDiv.innerHTML = `
+                    <p>Multiplication: ${num1} * ${num2} = ${multiplicationResult}</p>
+                    <p>Division: ${num1} / ${num2} = ${divisionResult}</p>
+                `;
+            }
+        });
+    </script></center>    
+</body>
+</html>

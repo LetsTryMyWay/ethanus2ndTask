@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Center the container */
+        .table-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Ensure full viewport height */
+        }
+
+        .bg-custom{
+            background-image: linear-gradient(to top  ,rgb(238, 118, 188)  ,rgb(224, 239, 141)  );
+        }
+
+        table {
+            border-collapse: separate; /* Use separate borders */
+            border-spacing: 0px; /* Add cellspacing */
+            width: 50%;
+        }
+
+        th {
+            border: 1px solid black;
+            padding: 1px;
+            text-align: center;
+        }
+
+        td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+            position: relative; /* Allow absolute positioning */
+        }
+
+        input[type="text"], input[type="password"], select { /* Added 'select' here */
+            width: 100%;
+            border: none;
+            padding: 4px; /* Adjust the padding for better appearance */
+        }
+
+        /* Style the radio buttons and labels */
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        /* Style the checkboxes and labels */
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        label {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        /* Increase the height and padding of the address cell */
+        tr:nth-child(9) td { /* Address row is the ninth row */
+            height: 100px; /* Adjust the height as needed */
+            padding: 8px;  /* Increase the padding for the address cell */
+        }
+
+        /* Style the last row with a single column */
+        tr:last-child td {
+            column-span: all;
+            text-align: center;
+        }
+        caption {
+            font-size: 40px; /* Increase the font size */
+            color: blue; /* Set the text color to red */
+        }
+        
+    </style>
+    <script>
+        function checkPasswordStrength() {
+            const password = document.getElementById("password").value;
+            const strengthMeter = document.getElementById("password-strength-meter");
+            const strengthText = document.getElementById("password-strength-text");
+
+            // Define the criteria for password strength
+            const strongRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+            const mediumRegex = /^(?=.*[a-zA-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
+
+            if (strongRegex.test(password)) {
+                strengthMeter.value = 100;
+                strengthText.innerHTML = "Strong";
+                strengthText.style.color = "green";
+            } else if (mediumRegex.test(password)) {
+                strengthMeter.value = 50;
+                strengthText.innerHTML = "Medium";
+                strengthText.style.color = "orange";
+            } else {
+                strengthMeter.value = 20;
+                strengthText.innerHTML = "Weak";
+                strengthText.style.color = "red";
+            }
+        }
+    </script>
+    <title>Document</title>
+</head>
+<body class=" bg-custom">
+    <div class="table-container ">
+        <table>
+            <caption>Registration Form</caption>
+            <tr>
+                <th>Firstname</th>
+                <td><input type="text" name="firstname" required /></td>
+            </tr>
+            <tr>
+                <th>Last Name:</th>
+                <td><input type="text" name="last_name" /></td>
+            </tr>
+
+            <tr>
+                <th>Email:</th>
+                <td>
+                    <input type="text" name="email" />
+                </td>
+            </tr>
+            <tr>
+                <th>Password:</th>
+                <td>
+                    <input type="password" name="password" id="password" onkeyup="checkPasswordStrength()" />
+                    <meter max="100" value="0" id="password-strength-meter"></meter>
+                    <p id="password-strength-text"></p>
+                </td>
+            </tr>
+            <tr>
+                <th>Re-Password:</th>
+                <td>
+                    <input type="password" name="repassword" />
+                </td>
+            </tr>
+            <tr>
+                <th>Gender:</th>
+                <td>
+                    <label for="male">
+                        <input type="radio" name="gender" id="male" value="male"> Male
+                    </label>
+                    <label for="female">
+                        <input type="radio" name="gender" id="female" value="female"> Female
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <th>Age:</th>
+                <td>
+                    <input type="text" name="age" />
+                </td>
+            </tr>
+            <tr>
+                <th>Phone Number:</th>
+                <td>
+                    <input type="text" name="phone" />
+                </td>
+            </tr>
+            <tr>
+                <th>Address:</th>
+                <td>
+                    <input type="text" name="address" />
+                </td>
+            </tr>
+            <tr>
+                <th>State:</th>
+                <td>
+                    <input type="text" name="state" />
+                </td>
+            </tr>
+            <tr>
+                <th>Country:</th>
+                <td>
+                    <select name="country"> <!-- Replace input with select -->
+                        <option value="">Choose Your Country</option>
+                        <option value="USA">USA</option>
+                        <option value="Canada">Canada</option>
+                        <option value="UK">UK</option>
+                        <option value="Australia">Australia</option>
+                        <!-- Add more options as needed -->
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>Languages Known:</th>
+                <td>
+                    <label for="english">
+                        <input type="checkbox" name="languages" id="english" value="english"> English
+                    </label>
+                    <label for="spanish">
+                        <input type="checkbox" name="languages" id="spanish" value="spanish"> Spanish
+                    </label>
+                    <label for="french">
+                        <input type="checkbox" name="languages" id="french" value="french"> French
+                    </label>
+                    <!-- Add more checkboxes for other languages as needed -->
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2">
+                    <input type="checkbox" name="declaration" id="declaration" value="true"> Hereby I declare that all the given details are true
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"  style="text-align: right;">
+                    Log in to<a href="https://codemithra.com/courses/" target="_blank"> Ethanus </a>Website
+                </td>
+            </tr>
+          
+        </table>
+        
+    </div>
+    <div style="text-align: center; margin-top: 20px;">
+        <input type="submit" value="Submit">
+    </div>
+</body>
+</html>
